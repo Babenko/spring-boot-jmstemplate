@@ -2,7 +2,7 @@ package com.foxic;
 
 import com.foxic.dto.TextMessage;
 import com.foxic.service.factory.MessageFactory;
-import com.foxic.service.processor.JmsProcessor;
+import com.foxic.service.processor.Sender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,7 +14,7 @@ import org.springframework.jms.annotation.EnableJms;
 public class App implements CommandLineRunner{
 
     @Autowired
-    private JmsProcessor jmsProcessor;
+    private Sender jmsProcessor;
 
     @Autowired
     private MessageFactory messageFactory;
