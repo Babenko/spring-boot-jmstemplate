@@ -17,7 +17,7 @@ public class JmsProcessor implements Processor {
     private JmsTemplate jmsTemplate;
 
     @Autowired
-    private JmsProcessor(JmsTemplate jmsTemplate, @Value("${destination}") String destination) {
+    public JmsProcessor(JmsTemplate jmsTemplate, @Value("${destination}") String destination) {
         this.jmsTemplate = jmsTemplate;
         this.destination = destination;
     }
