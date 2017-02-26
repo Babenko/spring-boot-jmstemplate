@@ -1,6 +1,7 @@
 package com.foxic;
 
 import com.foxic.dto.TextMessage;
+import com.foxic.service.EchoService;
 import com.foxic.service.factory.MessageFactory;
 import com.foxic.service.processor.Sender;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,7 @@ import org.springframework.jms.annotation.EnableJms;
 public class App implements CommandLineRunner{
 
     @Autowired
-    private Sender jmsProcessor;
-
-    @Autowired
-    private MessageFactory messageFactory;
+    private EchoService echoService;
 
     public static void main( String[] args ) {
 
@@ -26,8 +24,6 @@ public class App implements CommandLineRunner{
 
     @Override
     public void run(String... strings) throws Exception {
-        TextMessage textMessage = messageFactory.createTextMessage();
-        textMessage.setPayload("test");
-        jmsProcessor.send(textMessage);
+        echoService.echo();
     }
 }
